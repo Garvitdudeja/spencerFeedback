@@ -35,3 +35,5 @@ Noob.post('/data',async(req,res)=>{
 })
 
 Noob.listen(4000,()=>{console.log("Noob made api at 4000")})
+
+export default Noob
