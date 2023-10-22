@@ -1,10 +1,17 @@
 import express from "express";
 import cors from "cors";
 import axios from "axios";
-
+import {v4} from 'uuid'
 const Noob = express();
 Noob.use(cors());
 Noob.use(express.json());
+
+Noob.get('/api', (req, res) => {
+    const path = `/api/item/${v4()}`;
+    res.setHeader('Content-Type', 'text/html');
+    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+    res.end(`Hello! Go to item: <a href="${path}">${path}</a>`);
+  });
 
 Noob.get("/", (req, res) => {
   res.json({ message: "updated" });
