@@ -15,15 +15,15 @@ Noob.post("/data", async (req, res) => {
   try {
     const data = req.body.data;
     function jsonToFormData(json) {
-      const formData = new FormData();
+      const from = new FormData();
 
       for (const key in json) {
         if (json.hasOwnProperty(key)) {
-          formData.append(key, json[key]);
+          from.append(key, json[key]);
         }
       }
 
-      return formData;
+      return from;
     }
     const finalPostData = jsonToFormData(data);
     const URL =
