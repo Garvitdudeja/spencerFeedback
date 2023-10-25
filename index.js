@@ -15,6 +15,7 @@ Noob.get("/", (req, res) => {
 Noob.post("/data", async (req, res) => {
   try {
     const data = req.body.data;
+
     function jsonToFormData(json) {
       const from = new FormData();
 
@@ -30,7 +31,6 @@ Noob.post("/data", async (req, res) => {
     const URL =
       "https://www.zohoapis.com/crm/v2/functions/Update_Client_Feedback_in_Deal/actions/execute?auth_type=apikey&zapikey=1003.ea52eed87a0014942321fe35b0a9b557.2958e2de5bb055884936bb746b431c82";
     const response = await axios.post(URL, finalPostData);
-    console.log(response);
     res.json({ data: response.data });
   } catch (error) {
     res.json({ error: error.message });
